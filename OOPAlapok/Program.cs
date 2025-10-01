@@ -71,9 +71,18 @@ namespace OOPAlapok
     class Hallgato : Szemely
     {
         private string _neptunkod;
-        public Hallgato(string nev, int kor, string neptunkod) : base(nev, kor)
+
+        public string Neptunkod
         {
-            _neptunkod = neptunkod;
+            set
+            {
+                if (value.Length <= 6)
+                    _neptunkod = value;
+            }
+        }
+        public Hallgato(string nev, int kor) : base(nev, kor)
+        {
+
         }
     }
     internal class Program
