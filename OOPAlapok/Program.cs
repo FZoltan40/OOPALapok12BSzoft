@@ -87,6 +87,21 @@ namespace OOPAlapok
 
         }
     }
+
+    class Dolgozo : Szemely
+    {
+        private int _ber;
+
+        public Dolgozo(string nev, int kor, int ber) : base(nev, kor)
+        {
+            _ber = ber;
+        }
+
+        public override string ToString()
+        {
+            return $"{Nev} {Kor} {_ber}";
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
@@ -116,6 +131,9 @@ namespace OOPAlapok
             {
                 Console.WriteLine($"{item.Nev} {item.Kor} {item.Neptunkod}");
             }
+
+            Dolgozo dolgozo1 = new Dolgozo("Lapos Elemér", 43, 7500);
+            Console.WriteLine(dolgozo1);
         }
     }
 }
