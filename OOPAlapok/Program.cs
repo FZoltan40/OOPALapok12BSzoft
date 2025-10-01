@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace OOPAlapok
 {
@@ -74,6 +75,7 @@ namespace OOPAlapok
 
         public string Neptunkod
         {
+            get { return _neptunkod; }
             set
             {
                 if (value.Length <= 6)
@@ -93,6 +95,27 @@ namespace OOPAlapok
 
             Console.WriteLine(tanulo1);
             //Console.WriteLine(tanulo1.Nev + tanulo1.Kor);
+
+            List<Hallgato> hallgatoLista = new List<Hallgato>();
+
+            for (int i = 0; i < 2; i++)
+            {
+                Console.Write($"Kérem a(z) {i + 1}. nevet:");
+                string nev = Console.ReadLine();
+                Console.Write($"Kérem a(z) {i + 1}. tanuló életkorát:");
+                int kor = int.Parse(Console.ReadLine());
+                Hallgato tanulo = new Hallgato(nev, kor);
+                Console.Write($"Kérem a(z) {i + 1}. tanuló neptunkódját:");
+                string neptunkod = Console.ReadLine();
+                tanulo.Neptunkod = neptunkod;
+
+                hallgatoLista.Add(tanulo);
+            }
+
+            foreach (var item in hallgatoLista)
+            {
+                Console.WriteLine($"{item.Nev} {item.Kor} {item.Neptunkod}");
+            }
         }
     }
 }
